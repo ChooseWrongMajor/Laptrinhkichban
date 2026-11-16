@@ -1,0 +1,30 @@
+{
+    "region": "us-east-1",
+    "target_security_group": "sg-055c7152a7a2dbded",
+    "remediation_time": "2026-10-20T15:29:52.708446+00:00",
+    "dry_run": false,
+    "actions": [
+        {
+            "action": "revoke_ssh_from_world",
+            "status": "SUCCESS",
+            "details": "Đã gửi yêu cầu xóa rule SSH.",
+            "rule": {
+                "IpProtocol": "tcp",
+                "FromPort": 22,
+                "ToPort": 22,
+                "UserIdGroupPairs": [],
+                "IpRanges": [
+                    {
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "Ipv6Ranges": [],
+                "PrefixListIds": []
+            }
+        }
+    ],
+    "verification": {
+        "status": "PASS",
+        "details": "Không còn inbound rule TCP port 22 từ 0.0.0.0/0."
+    }
+}

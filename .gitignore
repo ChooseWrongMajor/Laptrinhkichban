@@ -1,0 +1,28 @@
+.venv
+# Thư mục cache cục bộ
+.terraform/
+
+# File state
+*.tfstate
+*.tfstate.*
+
+# File log lỗi
+crash.log
+crash.*.log
+
+# File chứa thông tin nhạy cảm
+*.tfvars
+*.tfvars.json
+
+# File override cục bộ
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# File cấu hình CLI cá nhân
+.terraformrc
+terraform.rc
+
+# File kế hoạch thực thi
+*.tfplan

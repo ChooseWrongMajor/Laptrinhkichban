@@ -1,0 +1,270 @@
+{
+    "region": "us-east-1",
+    "audit_time": "2026-10-20T15:32:22.191549+00:00",
+    "results": [
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-055c7152a7a2dbded",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong dev-bastion-sg (sg-055c7152a7a2dbded)"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-0ef6c689b62627cd6",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong default (sg-0ef6c689b62627cd6)"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-08ad4efc2815ec923",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong dev-alb-sg (sg-08ad4efc2815ec923)"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-0fb98832425d75b10",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong default (sg-0fb98832425d75b10)"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-03f9065896847cf4e",
+            "status": "FAIL",
+            "details": "Security Group my-ec2-sg (sg-03f9065896847cf4e) cho phép SSH từ 0.0.0.0/0"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-00497fbbb7da25c4a",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong dev-database-sg (sg-00497fbbb7da25c4a)"
+        },
+        {
+            "check": "SSH restricted from internet",
+            "resource_id": "sg-04b298515f6ba7842",
+            "status": "PASS",
+            "details": "Không phát hiện rule IPv4 0.0.0.0/0 cho phép TCP port 22 trong dev-app-sg (sg-04b298515f6ba7842)"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0bd487e73d249dc01",
+            "status": "PASS",
+            "details": "Instance đang ở trạng thái running"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0bd487e73d249dc01",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EBS volume encryption",
+            "resource_id": "vol-07af60966c5970d7a",
+            "status": "FAIL",
+            "details": "EBS volume chưa được mã hóa"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-05c075f0727a21134",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-05c075f0727a21134",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0c8241b59140d7158",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0c8241b59140d7158",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0e69689e0b086ea7b",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0e69689e0b086ea7b",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0477d6dcdab1e9c00",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0477d6dcdab1e9c00",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0462963738b619cd5",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0462963738b619cd5",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0dcd4ee4fdf4b25d4",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0dcd4ee4fdf4b25d4",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-071f946de9ea99c17",
+            "status": "PASS",
+            "details": "Instance đang ở trạng thái running"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-071f946de9ea99c17",
+            "status": "INFO",
+            "details": "Instance có Public IP: 98.81.27.55"
+        },
+        {
+            "check": "EBS volume encryption",
+            "resource_id": "vol-059574f72232023e3",
+            "status": "FAIL",
+            "details": "EBS volume chưa được mã hóa"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-00f2816efcdac5072",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-00f2816efcdac5072",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-055caf4642cdcb5b8",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-055caf4642cdcb5b8",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-051ea4e2f66f5a3fd",
+            "status": "PASS",
+            "details": "Instance đang ở trạng thái running"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-051ea4e2f66f5a3fd",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EBS volume encryption",
+            "resource_id": "vol-048c7d8bb7bf0d062",
+            "status": "FAIL",
+            "details": "EBS volume chưa được mã hóa"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-03e551bc932482fa0",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-03e551bc932482fa0",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-08cb7219219476a7f",
+            "status": "PASS",
+            "details": "Instance đang ở trạng thái running"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-08cb7219219476a7f",
+            "status": "INFO",
+            "details": "Instance có Public IP: 32.196.134.107"
+        },
+        {
+            "check": "EBS volume encryption",
+            "resource_id": "vol-0acef619babecf479",
+            "status": "FAIL",
+            "details": "EBS volume chưa được mã hóa"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-095d94d73aec6f559",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-095d94d73aec6f559",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-079cd0196a1d7a629",
+            "status": "INFO",
+            "details": "Instance đang ở trạng thái terminated"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-079cd0196a1d7a629",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EC2 instance state",
+            "resource_id": "i-0309c18be78210548",
+            "status": "PASS",
+            "details": "Instance đang ở trạng thái running"
+        },
+        {
+            "check": "EC2 public IP",
+            "resource_id": "i-0309c18be78210548",
+            "status": "INFO",
+            "details": "Instance không có Public IP"
+        },
+        {
+            "check": "EBS volume encryption",
+            "resource_id": "vol-053ac8e1dc79df978",
+            "status": "FAIL",
+            "details": "EBS volume chưa được mã hóa"
+        }
+    ]
+}
