@@ -22,7 +22,6 @@ def add_result(check_name, resource_id, status, details):
 
 
 def audit_security_groups():
-    """Kiểm tra Security Group có cho phép SSH từ mọi địa chỉ IPv4 không."""
 
     response = ec2.describe_security_groups()
 

@@ -26,3 +26,6 @@ terraform.rc
 
 # File kế hoạch thực thi
 *.tfplan
+document
+# File zip build cho Lambda
+infrastructure/build/
