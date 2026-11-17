@@ -1,0 +1,53 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "3.16",
+  "title": "Ensure ECS Exec sessions have audit logging enabled",
+  "region": "ap-southeast-1",
+  "mode": "remediate",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T14:34:21.848412+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "3.16",
+      "check": "Ensure ECS Exec sessions have audit logging enabled",
+      "resource_type": "ECS_Cluster",
+      "resource_id": "arn:aws:ecs:ap-southeast-1:206489185820:cluster/cis-compute-benchmark-cluster",
+      "cluster_name": "cis-compute-benchmark-cluster",
+      "logging_mode": "NONE_OR_DEFAULT",
+      "log_destination": "None",
+      "exec_enabled_services": [],
+      "status": "FAIL",
+      "details": "ECS Cluster 'cis-compute-benchmark-cluster' có executeCommandConfiguration.logging = NONE_OR_DEFAULT (chưa đặt thành OVERRIDE với CloudWatch/S3 log destination chuyên biệt).",
+      "timestamp": "2026-11-16T14:34:20.411936+00:00"
+    }
+  ],
+  "remediation_actions": [
+    {
+      "resource_id": "arn:aws:ecs:ap-southeast-1:206489185820:cluster/cis-compute-benchmark-cluster",
+      "cluster_name": "cis-compute-benchmark-cluster",
+      "resource_type": "ECS_Cluster",
+      "action": "enable_ecs_exec_override_logging",
+      "status": "SUCCESS",
+      "details": "Đã cấu hình logging='OVERRIDE' (CloudWatch Log Group: /ecs/exec-audit-logs) cho ECS Cluster 'cis-compute-benchmark-cluster'."
+    }
+  ],
+  "post_remediation_audit": [
+    {
+      "cis_id": "3.16",
+      "check": "Ensure ECS Exec sessions have audit logging enabled",
+      "resource_type": "ECS_Cluster",
+      "resource_id": "arn:aws:ecs:ap-southeast-1:206489185820:cluster/cis-compute-benchmark-cluster",
+      "cluster_name": "cis-compute-benchmark-cluster",
+      "logging_mode": "OVERRIDE",
+      "log_destination": "/ecs/exec-audit-logs",
+      "exec_enabled_services": [],
+      "status": "PASS",
+      "details": "ECS Cluster 'cis-compute-benchmark-cluster' đã cấu hình ECS Exec audit logging = OVERRIDE (Destination: /ecs/exec-audit-logs, Exec-enabled services: 0).",
+      "timestamp": "2026-11-16T14:34:21.713423+00:00"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "6.1",
+  "title": "Ensure you are using VPC Endpoints for source code access",
+  "region": "ap-southeast-1",
+  "mode": "remediate",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T14:45:13.677685+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "6.1",
+      "check": "Ensure you are using VPC Endpoints for source code access",
+      "resource_type": "VPC_Endpoint",
+      "resource_id": "MISSING_APPRUNNER_VPCE",
+      "service_name": "com.amazonaws.ap-southeast-1.apprunner",
+      "vpc_id": "N/A",
+      "state": "NOT_FOUND",
+      "subnet_ids": [],
+      "security_group_ids": [],
+      "status": "FAIL",
+      "details": "Chưa cấu hình Interface VPC Endpoint cho dịch vụ 'com.amazonaws.ap-southeast-1.apprunner' trong region ap-southeast-1.",
+      "timestamp": "2026-11-16T14:44:35.371662+00:00"
+    }
+  ],
+  "remediation_actions": [
+    {
+      "resource_id": "vpce-087d21bb075d25978",
+      "resource_type": "VPC_Endpoint",
+      "action": "create_apprunner_interface_vpc_endpoint",
+      "status": "SUCCESS",
+      "details": "Đã khởi tạo Interface VPC Endpoint vpce-087d21bb075d25978 cho dịch vụ 'com.amazonaws.ap-southeast-1.apprunner' trong VPC vpc-05f31dd1b38d6f1b9 (Subnet: subnet-05560be0f1e0a1afc, SG: sg-0e0b641ff9ab2785c)."
+    }
+  ],
+  "post_remediation_audit": [
+    {
+      "cis_id": "6.1",
+      "check": "Ensure you are using VPC Endpoints for source code access",
+      "resource_type": "VPC_Endpoint",
+      "resource_id": "vpce-087d21bb075d25978",
+      "service_name": "com.amazonaws.ap-southeast-1.apprunner",
+      "vpc_id": "vpc-05f31dd1b38d6f1b9",
+      "state": "available",
+      "subnet_ids": [
+        "subnet-05560be0f1e0a1afc"
+      ],
+      "security_group_ids": [
+        "sg-0e0b641ff9ab2785c"
+      ],
+      "status": "PASS",
+      "details": "VPC Endpoint vpce-087d21bb075d25978 (com.amazonaws.ap-southeast-1.apprunner) đạt chuẩn: State=available, VpcId=vpc-05f31dd1b38d6f1b9, Subnets=['subnet-05560be0f1e0a1afc'], SecurityGroups=['sg-0e0b641ff9ab2785c'].",
+      "timestamp": "2026-11-16T14:45:13.276970+00:00"
+    }
+  ]
+}

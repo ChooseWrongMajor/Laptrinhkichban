@@ -1,0 +1,50 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "12.8",
+  "title": "Ensure that Code Signing is enabled for Lambda functions.",
+  "region": "ap-southeast-1",
+  "mode": "remediate",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T14:59:38.175700+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "12.8",
+      "check": "Ensure that Code Signing is enabled for Lambda functions.",
+      "resource_type": "Lambda_Function",
+      "resource_id": "cis-compute-benchmark-lambda",
+      "code_signing_config_arn": "None",
+      "validation_policy": "NONE",
+      "last_modified": "2026-11-16T14:58:54.268+0000",
+      "status": "FAIL",
+      "details": "Lambda function 'cis-compute-benchmark-lambda' chưa được gắn Code Signing Configuration (CodeSigningConfigArn=null).",
+      "timestamp": "2026-11-16T14:59:37.127432+00:00"
+    }
+  ],
+  "remediation_actions": [
+    {
+      "resource_id": "cis-compute-benchmark-lambda",
+      "resource_type": "Lambda_Function",
+      "action": "attach_enforced_code_signing_config",
+      "status": "SUCCESS",
+      "details": "Đã gắn Code Signing Configuration (arn:aws:lambda:ap-southeast-1:206489185820:code-signing-config:csc-0ab9e93a73c6bdf6f, Policy=Enforce) cho Lambda function 'cis-compute-benchmark-lambda'."
+    }
+  ],
+  "post_remediation_audit": [
+    {
+      "cis_id": "12.8",
+      "check": "Ensure that Code Signing is enabled for Lambda functions.",
+      "resource_type": "Lambda_Function",
+      "resource_id": "cis-compute-benchmark-lambda",
+      "code_signing_config_arn": "arn:aws:lambda:ap-southeast-1:206489185820:code-signing-config:csc-0ab9e93a73c6bdf6f",
+      "validation_policy": "Enforce",
+      "last_modified": "2026-11-16T14:58:54.268+0000",
+      "status": "PASS",
+      "details": "Lambda function 'cis-compute-benchmark-lambda' đã bật Code Signing đạt chuẩn: CodeSigningConfigArn=arn:aws:lambda:ap-southeast-1:206489185820:code-signing-config:csc-0ab9e93a73c6bdf6f, UntrustedArtifactOnDeployment='Enforce' (Function LastModified: 2026-11-16T14:58:54.268+0000, Config LastModified: 2026-11-16T14:58:55.368995598Z).",
+      "timestamp": "2026-11-16T14:59:38.025627+00:00"
+    }
+  ]
+}

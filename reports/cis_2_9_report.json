@@ -1,0 +1,29 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "2.9",
+  "title": "Ensure use of AWS Systems Manager to manage EC2 instances",
+  "region": "ap-southeast-1",
+  "mode": "audit",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T14:18:27.300402+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "2.9",
+      "check": "Ensure use of AWS Systems Manager to manage EC2 instances",
+      "resource_type": "EC2_Instance",
+      "resource_id": "i-019d25d6c06d427a4",
+      "instance_state": "running",
+      "iam_instance_profile": "arn:aws:iam::206489185820:instance-profile/cis-2-9-ssm-instance-profile",
+      "ssm_ping_status": "Online",
+      "status": "PASS",
+      "details": "EC2 Instance i-019d25d6c06d427a4 (State: running) đã gắn IAM Instance Profile (arn:aws:iam::206489185820:instance-profile/cis-2-9-ssm-instance-profile) và đang Online trên AWS Systems Manager (Agent: 3.3.4793.0).",
+      "timestamp": "2026-11-16T14:18:25.904696+00:00"
+    }
+  ],
+  "remediation_actions": [],
+  "post_remediation_audit": []
+}

@@ -1,0 +1,57 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "12.10",
+  "title": "Ensure Lambda functions do not allow unknown cross account access via permission policies.",
+  "region": "ap-southeast-1",
+  "mode": "remediate",
+  "trusted_accounts": [
+    "206489185820"
+  ],
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T15:06:24.626694+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "12.10",
+      "check": "Ensure Lambda functions do not allow unknown cross account access via permission policies.",
+      "resource_type": "Lambda_Function",
+      "resource_id": "cis-compute-benchmark-lambda",
+      "non_compliant_sids": [
+        "UnknownCrossAccountAccess"
+      ],
+      "principals": [
+        "*"
+      ],
+      "status": "FAIL",
+      "details": "Lambda function 'cis-compute-benchmark-lambda' cấp quyền truy cập liên tài khoản không được phê duyệt: Sid=UnknownCrossAccountAccess: Principal='*' (cho phép mọi tài khoản/public)",
+      "timestamp": "2026-11-16T15:06:23.870763+00:00"
+    }
+  ],
+  "remediation_actions": [
+    {
+      "resource_id": "cis-compute-benchmark-lambda",
+      "resource_type": "Lambda_Function",
+      "action": "remove_unknown_cross_account_permissions",
+      "status": "SUCCESS",
+      "details": "Đã xoá các statement vi phạm ['UnknownCrossAccountAccess'] khỏi Lambda 'cis-compute-benchmark-lambda' và chỉ cấp quyền cho AWS Account được phê duyệt (206489185820)."
+    }
+  ],
+  "post_remediation_audit": [
+    {
+      "cis_id": "12.10",
+      "check": "Ensure Lambda functions do not allow unknown cross account access via permission policies.",
+      "resource_type": "Lambda_Function",
+      "resource_id": "cis-compute-benchmark-lambda",
+      "non_compliant_sids": [],
+      "principals": [
+        "arn:aws:iam::206489185820:root"
+      ],
+      "status": "PASS",
+      "details": "Lambda function 'cis-compute-benchmark-lambda' chỉ cấp quyền trong Resource-based policy cho các Principal hợp lệ/được phê duyệt: ['arn:aws:iam::206489185820:root'].",
+      "timestamp": "2026-11-16T15:06:24.503345+00:00"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "2.7",
+  "title": "Ensure Default EC2 Security groups are not being used.",
+  "region": "ap-southeast-1",
+  "mode": "audit",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T13:38:30.481005+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "2.7",
+      "check": "Ensure Default EC2 Security groups are not being used.",
+      "resource_type": "EC2_Instance",
+      "resource_id": "i-019d25d6c06d427a4",
+      "vpc_id": "vpc-05f31dd1b38d6f1b9",
+      "status": "PASS",
+      "details": "EC2 Instance i-019d25d6c06d427a4 (VPC: vpc-05f31dd1b38d6f1b9, State: stopped) chỉ sử dụng Custom Security Group: sportmate-app-sg (sg-0e0b641ff9ab2785c)",
+      "timestamp": "2026-11-16T13:38:29.714507+00:00"
+    },
+    {
+      "cis_id": "2.7",
+      "check": "Ensure Default EC2 Security groups are not being used. (Default SG Inbound Rules Check)",
+      "resource_type": "Default_Security_Group",
+      "resource_id": "sg-0f083e3a6a49a8df3",
+      "vpc_id": "vpc-0996526cb15374a17",
+      "status": "FAIL",
+      "details": "Default Security Group (sg-0f083e3a6a49a8df3) trong VPC vpc-0996526cb15374a17 đang có 1 inbound rule(s) chưa được xoá.",
+      "timestamp": "2026-11-16T13:38:29.714507+00:00"
+    },
+    {
+      "cis_id": "2.7",
+      "check": "Ensure Default EC2 Security groups are not being used. (Default SG Inbound Rules Check)",
+      "resource_type": "Default_Security_Group",
+      "resource_id": "sg-0c6b4ab9e7657ebd1",
+      "vpc_id": "vpc-02779dd3e114453ca",
+      "status": "FAIL",
+      "details": "Default Security Group (sg-0c6b4ab9e7657ebd1) trong VPC vpc-02779dd3e114453ca đang có 1 inbound rule(s) chưa được xoá.",
+      "timestamp": "2026-11-16T13:38:29.714507+00:00"
+    },
+    {
+      "cis_id": "2.7",
+      "check": "Ensure Default EC2 Security groups are not being used. (Default SG Inbound Rules Check)",
+      "resource_type": "Default_Security_Group",
+      "resource_id": "sg-026a4e7f95cb008af",
+      "vpc_id": "vpc-05f31dd1b38d6f1b9",
+      "status": "FAIL",
+      "details": "Default Security Group (sg-026a4e7f95cb008af) trong VPC vpc-05f31dd1b38d6f1b9 đang có 1 inbound rule(s) chưa được xoá.",
+      "timestamp": "2026-11-16T13:38:29.714507+00:00"
+    }
+  ],
+  "remediation_actions": [],
+  "post_remediation_audit": []
+}

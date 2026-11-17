@@ -1,0 +1,29 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "2.8",
+  "title": "Ensure the Use of IMDSv2 is Enforced on All Existing Instances",
+  "region": "ap-southeast-1",
+  "mode": "audit",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T13:50:34.272455+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "2.8",
+      "check": "Ensure the Use of IMDSv2 is Enforced on All Existing Instances",
+      "resource_type": "EC2_Instance",
+      "resource_id": "i-019d25d6c06d427a4",
+      "instance_state": "stopped",
+      "http_tokens": "required",
+      "http_endpoint": "enabled",
+      "status": "PASS",
+      "details": "EC2 Instance i-019d25d6c06d427a4 (State: stopped) đã bắt buộc IMDSv2 (HttpTokens=required, HttpEndpoint=enabled, HopLimit=2).",
+      "timestamp": "2026-11-16T13:50:33.704045+00:00"
+    }
+  ],
+  "remediation_actions": [],
+  "post_remediation_audit": []
+}

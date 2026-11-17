@@ -1,0 +1,29 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "2.13",
+  "title": "Ensure Secrets and Sensitive Data are not stored directly in EC2 User Data",
+  "region": "ap-southeast-1",
+  "mode": "audit",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T14:24:23.653021+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "2.13",
+      "check": "Ensure Secrets and Sensitive Data are not stored directly in EC2 User Data",
+      "resource_type": "EC2_Instance",
+      "resource_id": "i-019d25d6c06d427a4",
+      "instance_state": "running",
+      "has_user_data": true,
+      "findings": [],
+      "status": "PASS",
+      "details": "EC2 Instance i-019d25d6c06d427a4 (State: running) có User Data hợp lệ (không chứa mật khẩu/khóa bí mật). Nội dung: #!/bin/bash | set -euxo pipefail | apt-get update | apt-get install -y docker.io docker-compose-v2 git curl nginx certbot python3-certbot-nginx | systemctl enab",
+      "timestamp": "2026-11-16T14:24:22.885111+00:00"
+    }
+  ],
+  "remediation_actions": [],
+  "post_remediation_audit": []
+}

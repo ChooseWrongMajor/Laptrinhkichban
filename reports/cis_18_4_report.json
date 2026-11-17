@@ -1,0 +1,78 @@
+{
+  "cis_benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "cis_id": "18.4",
+  "title": "Ensure private ECR repositories do not allow public access via resource policies",
+  "region": "ap-southeast-1",
+  "mode": "remediate",
+  "caller_identity": {
+    "UserId": "AIDATAE5W5YOH2JLPQLH4",
+    "Account": "206489185820",
+    "Arn": "arn:aws:iam::206489185820:user/cis-benchmark-ansible"
+  },
+  "execution_time": "2026-11-16T15:13:02.577290+00:00",
+  "initial_audit": [
+    {
+      "cis_id": "18.4",
+      "check": "Ensure private ECR repositories do not allow public access via resource policies",
+      "resource_type": "ECR_Repository",
+      "resource_id": "cis-compute-benchmark-private-repo",
+      "principals": [
+        "*"
+      ],
+      "offending_sids": [
+        "PublicAccessStatement"
+      ],
+      "status": "FAIL",
+      "details": "Private ECR Repository 'cis-compute-benchmark-private-repo' cho phép truy cập công khai (Principal='*') tại các Statement Sid=['PublicAccessStatement'].",
+      "timestamp": "2026-11-16T15:13:01.702791+00:00"
+    },
+    {
+      "cis_id": "18.4",
+      "check": "Ensure private ECR repositories do not allow public access via resource policies (Registry-wide Policy)",
+      "resource_type": "ECR_Registry_Policy",
+      "resource_id": "ECR_PRIVATE_REGISTRY",
+      "principals": [],
+      "offending_sids": [],
+      "status": "PASS",
+      "details": "Không có ECR Registry-wide Policy (RegistryPolicyNotFoundException -> PASS).",
+      "timestamp": "2026-11-16T15:13:01.702791+00:00"
+    }
+  ],
+  "remediation_actions": [
+    {
+      "resource_id": "cis-compute-benchmark-private-repo",
+      "resource_type": "ECR_Repository",
+      "action": "restrict_ecr_repository_policy_principal",
+      "status": "SUCCESS",
+      "details": "Đã cập nhật Resource Policy của ECR Repository 'cis-compute-benchmark-private-repo', thay Principal='*' bằng 'arn:aws:iam::206489185820:root'."
+    }
+  ],
+  "post_remediation_audit": [
+    {
+      "cis_id": "18.4",
+      "check": "Ensure private ECR repositories do not allow public access via resource policies",
+      "resource_type": "ECR_Repository",
+      "resource_id": "cis-compute-benchmark-private-repo",
+      "principals": [
+        {
+          "AWS": "arn:aws:iam::206489185820:root"
+        }
+      ],
+      "offending_sids": [],
+      "status": "PASS",
+      "details": "Private ECR Repository 'cis-compute-benchmark-private-repo' có Resource Policy an toàn, chỉ cấp quyền cho Principal cụ thể: [{'AWS': 'arn:aws:iam::206489185820:root'}].",
+      "timestamp": "2026-11-16T15:13:02.372604+00:00"
+    },
+    {
+      "cis_id": "18.4",
+      "check": "Ensure private ECR repositories do not allow public access via resource policies (Registry-wide Policy)",
+      "resource_type": "ECR_Registry_Policy",
+      "resource_id": "ECR_PRIVATE_REGISTRY",
+      "principals": [],
+      "offending_sids": [],
+      "status": "PASS",
+      "details": "Không có ECR Registry-wide Policy (RegistryPolicyNotFoundException -> PASS).",
+      "timestamp": "2026-11-16T15:13:02.372604+00:00"
+    }
+  ]
+}
