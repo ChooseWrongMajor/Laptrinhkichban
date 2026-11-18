@@ -1,0 +1,182 @@
+{
+  "audit_report": "reports/20261118_091755",
+  "account_id": "087736691889",
+  "mode": "DRY-RUN",
+  "allow_destructive": false,
+  "scope": {
+    "Project": "computebench"
+  },
+  "results": [
+    {
+      "cis_id": "2.2.2",
+      "resource_id": "snap-02eba805948870056",
+      "status": "PLANNED",
+      "action": "ec2.modify_snapshot_attribute(snap-02eba805948870056, remove group=all)",
+      "message": "Sẽ chuyển snapshot về private. DryRun OK: đủ quyền và tham số hợp lệ",
+      "tier": "AUTO",
+      "resource_name": "computebench-dev-snap-plain",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "aws ec2 modify-snapshot-attribute --region us-east-1 --snapshot-id snap-02eba805948870056 --attribute createVolumePermission --operation-type add --group-names all",
+      "created_resources": [],
+      "verify_ids": [
+        "snap-02eba805948870056"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:06+00:00"
+    },
+    {
+      "cis_id": "2.2.3",
+      "resource_id": "snap-02eba805948870056",
+      "status": "PLANNED",
+      "action": "ec2.copy_snapshot(snap-02eba805948870056, Encrypted=True)",
+      "message": "Sẽ tạo bản copy mã hóa, snapshot gốc giữ lại chờ duyệt (--allow-destructive để xoá). DryRun OK: đủ quyền và tham số hợp lệ",
+      "tier": "APPROVAL",
+      "resource_name": "computebench-dev-snap-plain",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "",
+      "created_resources": [],
+      "verify_ids": [
+        "snap-02eba805948870056"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:08+00:00"
+    },
+    {
+      "cis_id": "2.1.2",
+      "resource_id": "ami-01b210c9396c939e9",
+      "status": "PLANNED",
+      "action": "ec2.copy_image(ami-01b210c9396c939e9, Encrypted=True)",
+      "message": "Sẽ tạo 'computebench-dev-v1.0.0-encrypted' có mã hóa, AMI gốc giữ lại chờ duyệt (--allow-destructive để deregister). DryRun OK: đủ quyền và tham số hợp lệ",
+      "tier": "APPROVAL",
+      "resource_name": "computebench-dev-v1.0.0",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "",
+      "created_resources": [],
+      "verify_ids": [
+        "ami-01b210c9396c939e9"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:09+00:00"
+    },
+    {
+      "cis_id": "2.1.2",
+      "resource_id": "ami-0dae2ee9358d703f7",
+      "status": "PLANNED",
+      "action": "ec2.copy_image(ami-0dae2ee9358d703f7, Encrypted=True)",
+      "message": "Sẽ tạo 'my-test-image-encrypted' có mã hóa, AMI gốc giữ lại chờ duyệt (--allow-destructive để deregister). DryRun OK: đủ quyền và tham số hợp lệ",
+      "tier": "APPROVAL",
+      "resource_name": "my-test-image",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "",
+      "created_resources": [],
+      "verify_ids": [
+        "ami-0dae2ee9358d703f7"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:09+00:00"
+    },
+    {
+      "cis_id": "3.2",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:service/computebench-dev-cluster/web-public-svc",
+      "status": "PLANNED",
+      "action": "ecs.update_service(web-public-svc, assignPublicIp=DISABLED)",
+      "message": "Sẽ tắt public IP cho service web-public-svc (task chạy sau đó cần NAT/VPC endpoint để ra Internet)",
+      "tier": "AUTO",
+      "resource_name": "web-public-svc",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "aws ecs update-service --region us-east-1 --cluster arn:aws:ecs:us-east-1:087736691889:cluster/computebench-dev-cluster --service web-public-svc --network-configuration 'awsvpcConfiguration={subnets=[subnet-0304c4143f2ba596c,subnet-0c7e23feb276b3556],securityGroups=[sg-033a4f9a66b3c13ba],assignPublicIp=ENABLED}'",
+      "created_resources": [],
+      "verify_ids": [
+        "arn:aws:ecs:us-east-1:087736691889:service/computebench-dev-cluster/web-public-svc"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:13+00:00"
+    },
+    {
+      "cis_id": "3.4",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "PLANNED",
+      "action": "ecs.register_task_definition(computebench-worker, privileged=false cho worker)",
+      "message": "Sẽ tạo revision mới từ computebench-worker:1 với privileged=false cho worker; không service nào đang dùng",
+      "tier": "AUTO",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "",
+      "created_resources": [],
+      "verify_ids": [
+        "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:16+00:00"
+    },
+    {
+      "cis_id": "12.16",
+      "resource_id": "arn:aws:lambda:us-east-1:087736691889:function:computebench-public-fn",
+      "status": "PLANNED",
+      "action": "lambda.update_function_url_config(computebench-public-fn, AuthType=AWS_IAM)",
+      "message": "Sẽ yêu cầu chữ ký SigV4 (IAM) cho mọi request tới Function URL; client đang gọi không xác thực sẽ bị từ chối",
+      "tier": "AUTO",
+      "resource_name": "computebench-public-fn",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "aws lambda update-function-url-config --region us-east-1 --function-name computebench-public-fn --auth-type NONE",
+      "created_resources": [],
+      "verify_ids": [
+        "arn:aws:lambda:us-east-1:087736691889:function:computebench-public-fn"
+      ],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:20+00:00"
+    },
+    {
+      "cis_id": "2.2.1",
+      "resource_id": "ebs-encryption-by-default/us-east-1",
+      "status": "PLANNED",
+      "action": "ec2.enable_ebs_encryption_by_default()",
+      "message": "Sẽ bật mã hóa mặc định cho mọi volume mới trong us-east-1. DryRun OK: đủ quyền và tham số hợp lệ",
+      "tier": "AUTO",
+      "resource_name": "",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "aws ec2 disable-ebs-encryption-by-default --region us-east-1",
+      "created_resources": [],
+      "verify_ids": [
+        "ebs-encryption-by-default/us-east-1"
+      ],
+      "details": {
+        "scope": "account-level"
+      },
+      "executed_at": "2026-11-18T03:15:20+00:00"
+    },
+    {
+      "cis_id": "3.5",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "SKIPPED_AUDIT_ONLY",
+      "action": "-",
+      "message": "Ứng dụng có thể cần ghi vào filesystem, phải kiểm thử trước",
+      "tier": "AUDIT_ONLY",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "before": "FAIL",
+      "after": "",
+      "rollback": "",
+      "created_resources": [],
+      "verify_ids": [],
+      "details": {},
+      "executed_at": "2026-11-18T03:15:20+00:00"
+    }
+  ]
+}

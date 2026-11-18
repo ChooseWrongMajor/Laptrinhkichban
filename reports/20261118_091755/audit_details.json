@@ -1,0 +1,403 @@
+{
+  "account_id": "087736691889",
+  "regions": [
+    "us-east-1"
+  ],
+  "scope": {
+    "Project": "computebench"
+  },
+  "started_at": "2026-11-18T02:17:10+00:00",
+  "finished_at": "2026-11-18T02:17:55+00:00",
+  "benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "findings": [
+    {
+      "cis_id": "2.1.2",
+      "resource_id": "ami-01b210c9396c939e9",
+      "status": "FAIL",
+      "message": "Snapshot chưa mã hóa ở device: /dev/xvda",
+      "resource_name": "computebench-dev-v1.0.0",
+      "region": "us-east-1",
+      "evidence": {
+        "devices": [
+          {
+            "device": "/dev/xvda",
+            "snapshot_id": "snap-0dd7c3074caed2ab7",
+            "encrypted": false
+          }
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.1.2",
+      "resource_id": "ami-0dae2ee9358d703f7",
+      "status": "FAIL",
+      "message": "Snapshot chưa mã hóa ở device: /dev/xvda",
+      "resource_name": "my-test-image",
+      "region": "us-east-1",
+      "evidence": {
+        "devices": [
+          {
+            "device": "/dev/xvda",
+            "snapshot_id": "snap-000b989e51c439fd2",
+            "encrypted": false
+          }
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.1.2",
+      "resource_id": "ami-07a23092297d14210",
+      "status": "PASS",
+      "message": "Toàn bộ EBS snapshot của AMI đã mã hóa",
+      "resource_name": "computebench-dev-v1.0.1",
+      "region": "us-east-1",
+      "evidence": {
+        "devices": [
+          {
+            "device": "/dev/xvda",
+            "snapshot_id": "snap-0dd114169c652feeb",
+            "encrypted": true
+          }
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.1.4",
+      "resource_id": "ami-01b210c9396c939e9",
+      "status": "PASS",
+      "message": "AMI 0 ngày tuổi",
+      "resource_name": "computebench-dev-v1.0.0",
+      "region": "us-east-1",
+      "evidence": {
+        "creation_date": "2026-11-18T01:37:29.000Z",
+        "age_days": 0
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.1.4",
+      "resource_id": "ami-0dae2ee9358d703f7",
+      "status": "PASS",
+      "message": "AMI 0 ngày tuổi",
+      "resource_name": "my-test-image",
+      "region": "us-east-1",
+      "evidence": {
+        "creation_date": "2026-11-18T01:37:30.000Z",
+        "age_days": 0
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.1.4",
+      "resource_id": "ami-07a23092297d14210",
+      "status": "PASS",
+      "message": "AMI 0 ngày tuổi",
+      "resource_name": "computebench-dev-v1.0.1",
+      "region": "us-east-1",
+      "evidence": {
+        "creation_date": "2026-11-18T01:39:11.000Z",
+        "age_days": 0
+      },
+      "checked_at": "2026-11-18T02:17:24+00:00"
+    },
+    {
+      "cis_id": "2.2.1",
+      "resource_id": "ebs-encryption-by-default/us-east-1",
+      "status": "FAIL",
+      "message": "EBS encryption by default đang tắt, volume mới có thể không được mã hóa",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "EbsEncryptionByDefault": false
+      },
+      "checked_at": "2026-11-18T02:17:25+00:00"
+    },
+    {
+      "cis_id": "2.2.2",
+      "resource_id": "snap-02eba805948870056",
+      "status": "FAIL",
+      "message": "Snapshot đang public (createVolumePermission group=all)",
+      "resource_name": "computebench-dev-snap-plain",
+      "region": "us-east-1",
+      "evidence": {
+        "public": true,
+        "shared_with_accounts": []
+      },
+      "checked_at": "2026-11-18T02:17:27+00:00"
+    },
+    {
+      "cis_id": "2.2.2",
+      "resource_id": "snap-082ac778163829676",
+      "status": "PASS",
+      "message": "Snapshot không public",
+      "resource_name": "computebench-dev-snap-encrypted",
+      "region": "us-east-1",
+      "evidence": {
+        "public": false,
+        "shared_with_accounts": []
+      },
+      "checked_at": "2026-11-18T02:17:27+00:00"
+    },
+    {
+      "cis_id": "2.2.3",
+      "resource_id": "snap-02eba805948870056",
+      "status": "FAIL",
+      "message": "Snapshot chưa mã hóa (volume nguồn vol-03da5db367ae294a4)",
+      "resource_name": "computebench-dev-snap-plain",
+      "region": "us-east-1",
+      "evidence": {
+        "encrypted": false,
+        "kms_key_id": ""
+      },
+      "checked_at": "2026-11-18T02:17:27+00:00"
+    },
+    {
+      "cis_id": "2.2.3",
+      "resource_id": "snap-082ac778163829676",
+      "status": "PASS",
+      "message": "Snapshot đã mã hóa",
+      "resource_name": "computebench-dev-snap-encrypted",
+      "region": "us-east-1",
+      "evidence": {
+        "encrypted": true,
+        "kms_key_id": "arn:aws:kms:us-east-1:087736691889:key/d3c6c79d-1d7e-4f6d-be96-49f7794b0c34"
+      },
+      "checked_at": "2026-11-18T02:17:27+00:00"
+    },
+    {
+      "cis_id": "2.14",
+      "resource_id": "arn:aws:autoscaling:us-east-1:087736691889:autoScalingGroup:4ebf1bc8-25f0-40c5-b90d-7f6647a379c9:autoScalingGroupName/computebench-dev-asg",
+      "status": "PASS",
+      "message": "Cả 4 tag đều propagate xuống instance",
+      "resource_name": "computebench-dev-asg",
+      "region": "us-east-1",
+      "evidence": {
+        "tag_count": 4,
+        "not_propagated": []
+      },
+      "checked_at": "2026-11-18T02:17:31+00:00"
+    },
+    {
+      "cis_id": "3.2",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:service/computebench-dev-cluster/web-public-svc",
+      "status": "FAIL",
+      "message": "Service tự động gán Public IP cho task",
+      "resource_name": "web-public-svc",
+      "region": "us-east-1",
+      "evidence": {
+        "assignPublicIp": "ENABLED",
+        "subnets": [
+          "subnet-0304c4143f2ba596c",
+          "subnet-0c7e23feb276b3556"
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:48+00:00"
+    },
+    {
+      "cis_id": "3.2",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:service/computebench-dev-cluster/web-private-svc",
+      "status": "PASS",
+      "message": "assignPublicIp = DISABLED",
+      "resource_name": "web-private-svc",
+      "region": "us-east-1",
+      "evidence": {
+        "assignPublicIp": "DISABLED",
+        "subnets": [
+          "subnet-0304c4143f2ba596c",
+          "subnet-0c7e23feb276b3556"
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:48+00:00"
+    },
+    {
+      "cis_id": "3.3",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "PASS",
+      "message": "pidMode = không đặt (mặc định private)",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "evidence": {
+        "pidMode": null
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.3",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "PASS",
+      "message": "pidMode = không đặt (mặc định private)",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "evidence": {
+        "pidMode": null
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.4",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "PASS",
+      "message": "Không có container privileged",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "evidence": {
+        "privileged_containers": []
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.4",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "FAIL",
+      "message": "Container privileged: worker",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "evidence": {
+        "privileged_containers": [
+          "worker"
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.5",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "FAIL",
+      "message": "Root filesystem cho phép ghi: web",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "evidence": {
+        "writable_root_containers": [
+          "web"
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.5",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "PASS",
+      "message": "Mọi container dùng root filesystem chỉ đọc",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "evidence": {
+        "writable_root_containers": []
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.6",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "PASS",
+      "message": "Không có credential trong biến môi trường",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "evidence": {
+        "sensitive_env": [],
+        "uses_secrets_block": true
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.6",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "PASS",
+      "message": "Không có credential trong biến môi trường",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "evidence": {
+        "sensitive_env": [],
+        "uses_secrets_block": false
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.7",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-web:1",
+      "status": "PASS",
+      "message": "Logging: web=awslogs",
+      "resource_name": "computebench-web:1",
+      "region": "us-east-1",
+      "evidence": {
+        "log_drivers": {
+          "web": "awslogs"
+        }
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.7",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/computebench-worker:1",
+      "status": "PASS",
+      "message": "Logging: worker=awslogs",
+      "resource_name": "computebench-worker:1",
+      "region": "us-east-1",
+      "evidence": {
+        "log_drivers": {
+          "worker": "awslogs"
+        }
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.9",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:cluster/computebench-dev-cluster",
+      "status": "PASS",
+      "message": "Container Insights = enabled",
+      "resource_name": "computebench-dev-cluster",
+      "region": "us-east-1",
+      "evidence": {
+        "containerInsights": "enabled"
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "3.11",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:cluster/computebench-dev-cluster",
+      "status": "PASS",
+      "message": "Cluster có 6 tag",
+      "resource_name": "computebench-dev-cluster",
+      "region": "us-east-1",
+      "evidence": {
+        "user_tag_keys": [
+          "Project",
+          "Environment",
+          "Owner",
+          "ManagedBy",
+          "CisControls",
+          "Name"
+        ]
+      },
+      "checked_at": "2026-11-18T02:17:49+00:00"
+    },
+    {
+      "cis_id": "12.16",
+      "resource_id": "arn:aws:lambda:us-east-1:087736691889:function:computebench-secure-fn",
+      "status": "PASS",
+      "message": "Function URL yêu cầu xác thực IAM",
+      "resource_name": "computebench-secure-fn",
+      "region": "us-east-1",
+      "evidence": {
+        "auth_type": "AWS_IAM",
+        "function_url": "https://wgmh5qwldgrfhvksgswatgseju0qbdaw.lambda-url.us-east-1.on.aws/"
+      },
+      "checked_at": "2026-11-18T02:17:55+00:00"
+    },
+    {
+      "cis_id": "12.16",
+      "resource_id": "arn:aws:lambda:us-east-1:087736691889:function:computebench-public-fn",
+      "status": "FAIL",
+      "message": "Function URL dùng AuthType = NONE, không cần xác thực",
+      "resource_name": "computebench-public-fn",
+      "region": "us-east-1",
+      "evidence": {
+        "auth_type": "NONE",
+        "function_url": "https://2r5ipnbbjl3bmfkvl5ruuizxa40ftygw.lambda-url.us-east-1.on.aws/"
+      },
+      "checked_at": "2026-11-18T02:17:55+00:00"
+    }
+  ]
+}

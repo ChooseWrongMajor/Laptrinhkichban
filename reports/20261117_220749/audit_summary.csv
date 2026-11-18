@@ -1,0 +1,16 @@
+﻿cis_id,title,service,level,checked,pass,fail,error,status,expected,match,remediation,failed_resources
+2.1.2,AMIs are encrypted,AMI,1,0,0,0,0,NOT_APPLICABLE,,,APPROVAL,
+2.1.4,AMIs not older than 90 days,AMI,1,0,0,0,0,NOT_APPLICABLE,,,AUDIT_ONLY,
+2.2.1,EBS encryption by default enabled,EBS,1,1,0,1,0,FAIL,,,AUTO,ebs-encryption-by-default/us-east-1
+2.2.2,EBS snapshots not public,EBS,1,2,2,0,0,PASS,,,AUTO,
+2.2.3,EBS snapshots are encrypted,EBS,1,2,0,2,0,FAIL,,,APPROVAL,"snap-09406bf2ef4540599, snap-0c8e1a8c7da063e8e"
+2.14,ASG propagates tags to instances,EC2,1,1,1,0,0,PASS,,,AUTO,
+3.2,ECS service assignPublicIp DISABLED,ECS,1,0,0,0,0,NOT_APPLICABLE,,,AUTO,
+3.3,Task def pidMode not host,ECS,1,1,1,0,0,PASS,,,AUTO,
+3.4,Task def not privileged,ECS,1,1,1,0,0,PASS,,,AUTO,
+3.5,Task def readonlyRootFilesystem,ECS,1,1,0,1,0,FAIL,,,AUDIT_ONLY,hoang-pms-cluster-PMS_frontend:1
+3.6,No secrets in task def env vars,ECS,1,1,1,0,0,PASS,,,AUDIT_ONLY,
+3.7,Task def logging configured,ECS,1,1,1,0,0,PASS,,,AUDIT_ONLY,
+3.9,ECS cluster Container Insights,ECS,2,1,0,1,0,FAIL,,,AUTO,default
+3.11,ECS cluster tagged,ECS,1,1,0,1,0,FAIL,,,AUTO,default
+12.16,Lambda Function URL uses AWS_IAM,Lambda,1,0,0,0,0,NOT_APPLICABLE,,,AUTO,

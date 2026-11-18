@@ -1,0 +1,9 @@
+﻿cis_id,title,tier,targets,planned,remediated,pending,skipped,failed,before,after,action
+2.1.2,AMIs are encrypted,APPROVAL,2,2,0,0,0,0,FAIL,,"ec2.copy_image(ami-01b210c9396c939e9, Encrypted=True)"
+2.2.1,EBS encryption by default enabled,AUTO,1,1,0,0,0,0,FAIL,,ec2.enable_ebs_encryption_by_default()
+2.2.2,EBS snapshots not public,AUTO,1,1,0,0,0,0,FAIL,,"ec2.modify_snapshot_attribute(snap-02eba805948870056, remove group=all)"
+2.2.3,EBS snapshots are encrypted,APPROVAL,1,1,0,0,0,0,FAIL,,"ec2.copy_snapshot(snap-02eba805948870056, Encrypted=True)"
+3.2,ECS service assignPublicIp DISABLED,AUTO,1,1,0,0,0,0,FAIL,,"ecs.update_service(web-public-svc, assignPublicIp=DISABLED)"
+3.4,Task def not privileged,AUTO,1,1,0,0,0,0,FAIL,,"ecs.register_task_definition(computebench-worker, privileged=false cho worker)"
+3.5,Task def readonlyRootFilesystem,AUDIT_ONLY,1,0,0,0,1,0,FAIL,,"Ứng dụng có thể cần ghi vào filesystem, phải kiểm thử trước"
+12.16,Lambda Function URL uses AWS_IAM,AUTO,1,1,0,0,0,0,FAIL,,"lambda.update_function_url_config(computebench-public-fn, AuthType=AWS_IAM)"

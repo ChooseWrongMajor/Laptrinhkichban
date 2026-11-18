@@ -1,0 +1,178 @@
+{
+  "account_id": "087736691889",
+  "regions": [
+    "us-east-1"
+  ],
+  "scope": {},
+  "started_at": "2026-11-17T15:07:40+00:00",
+  "finished_at": "2026-11-17T15:07:49+00:00",
+  "benchmark": "CIS AWS Compute Services Benchmark v2.0.0",
+  "findings": [
+    {
+      "cis_id": "2.2.1",
+      "resource_id": "ebs-encryption-by-default/us-east-1",
+      "status": "FAIL",
+      "message": "EBS encryption by default đang tắt, volume mới có thể không được mã hóa",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "EbsEncryptionByDefault": false
+      },
+      "checked_at": "2026-11-17T15:07:43+00:00"
+    },
+    {
+      "cis_id": "2.2.2",
+      "resource_id": "snap-09406bf2ef4540599",
+      "status": "PASS",
+      "message": "Snapshot không public",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "public": false,
+        "shared_with_accounts": []
+      },
+      "checked_at": "2026-11-17T15:07:44+00:00"
+    },
+    {
+      "cis_id": "2.2.2",
+      "resource_id": "snap-0c8e1a8c7da063e8e",
+      "status": "PASS",
+      "message": "Snapshot không public",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "public": false,
+        "shared_with_accounts": []
+      },
+      "checked_at": "2026-11-17T15:07:44+00:00"
+    },
+    {
+      "cis_id": "2.2.3",
+      "resource_id": "snap-09406bf2ef4540599",
+      "status": "FAIL",
+      "message": "Snapshot chưa mã hóa (volume nguồn vol-07ac16e7786d1ee7f)",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "encrypted": false,
+        "kms_key_id": ""
+      },
+      "checked_at": "2026-11-17T15:07:44+00:00"
+    },
+    {
+      "cis_id": "2.2.3",
+      "resource_id": "snap-0c8e1a8c7da063e8e",
+      "status": "FAIL",
+      "message": "Snapshot chưa mã hóa (volume nguồn vol-050252c64f4ddbce9)",
+      "resource_name": "",
+      "region": "us-east-1",
+      "evidence": {
+        "encrypted": false,
+        "kms_key_id": ""
+      },
+      "checked_at": "2026-11-17T15:07:44+00:00"
+    },
+    {
+      "cis_id": "2.14",
+      "resource_id": "arn:aws:autoscaling:us-east-1:087736691889:autoScalingGroup:0916c89e-c970-434a-a6a9-d6f871220624:autoScalingGroupName/dev-asg",
+      "status": "PASS",
+      "message": "Cả 2 tag đều propagate xuống instance",
+      "resource_name": "dev-asg",
+      "region": "us-east-1",
+      "evidence": {
+        "tag_count": 2,
+        "not_propagated": []
+      },
+      "checked_at": "2026-11-17T15:07:45+00:00"
+    },
+    {
+      "cis_id": "3.3",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/hoang-pms-cluster-PMS_frontend:1",
+      "status": "PASS",
+      "message": "pidMode = không đặt (mặc định private)",
+      "resource_name": "hoang-pms-cluster-PMS_frontend:1",
+      "region": "us-east-1",
+      "evidence": {
+        "pidMode": null
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.4",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/hoang-pms-cluster-PMS_frontend:1",
+      "status": "PASS",
+      "message": "Không có container privileged",
+      "resource_name": "hoang-pms-cluster-PMS_frontend:1",
+      "region": "us-east-1",
+      "evidence": {
+        "privileged_containers": []
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.5",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/hoang-pms-cluster-PMS_frontend:1",
+      "status": "FAIL",
+      "message": "Root filesystem cho phép ghi: Main",
+      "resource_name": "hoang-pms-cluster-PMS_frontend:1",
+      "region": "us-east-1",
+      "evidence": {
+        "writable_root_containers": [
+          "Main"
+        ]
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.6",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/hoang-pms-cluster-PMS_frontend:1",
+      "status": "PASS",
+      "message": "Không có credential trong biến môi trường",
+      "resource_name": "hoang-pms-cluster-PMS_frontend:1",
+      "region": "us-east-1",
+      "evidence": {
+        "sensitive_env": [],
+        "uses_secrets_block": false
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.7",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:task-definition/hoang-pms-cluster-PMS_frontend:1",
+      "status": "PASS",
+      "message": "Logging: Main=awslogs",
+      "resource_name": "hoang-pms-cluster-PMS_frontend:1",
+      "region": "us-east-1",
+      "evidence": {
+        "log_drivers": {
+          "Main": "awslogs"
+        }
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.9",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:cluster/default",
+      "status": "FAIL",
+      "message": "Container Insights = disabled",
+      "resource_name": "default",
+      "region": "us-east-1",
+      "evidence": {
+        "containerInsights": "disabled"
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    },
+    {
+      "cis_id": "3.11",
+      "resource_id": "arn:aws:ecs:us-east-1:087736691889:cluster/default",
+      "status": "FAIL",
+      "message": "Cluster không có tag do người dùng đặt",
+      "resource_name": "default",
+      "region": "us-east-1",
+      "evidence": {
+        "user_tag_keys": []
+      },
+      "checked_at": "2026-11-17T15:07:48+00:00"
+    }
+  ]
+}
