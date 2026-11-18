@@ -48,18 +48,25 @@ resource "aws_lambda_function" "public" {
 }
 
 # CIS 12.16 FAIL: Function URL không yêu cầu xác thực.
-# Không thêm resource policy public nên URL thực tế vẫn trả 403.
+# Provider tự thêm statement "FunctionURLAllowPublicAccess" (lambda:InvokeFunctionUrl
+# cho Principal "*"), nhưng AWS còn yêu cầu quyền lambda:InvokeFunction nên URL
+# thực tế vẫn trả 403.
 resource "aws_lambda_function_url" "public" {
   function_name      = aws_lambda_function.public.function_name
   authorization_type = "NONE"
 }
 
-# CIS 12.10 FAIL: cấp quyền invoke cho account không thuộc tổ chức
+# CIS 12.10 FAIL: cho phép tài nguyên thuộc account ngoài tổ chức invoke function.
+# Lambda từ chối principal là account không tồn tại (vd 111122223333), nên dùng
+# service principal kèm SourceAccount/SourceArn của account lạ: S3 bucket của
+# account đó được quyền kích hoạt function -> cross-account access không được phê duyệt.
 resource "aws_lambda_permission" "public_cross_account" {
-  statement_id  = "AllowUnknownAccountInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.public.function_name
-  principal     = var.untrusted_account_id
+  statement_id   = "AllowUnknownAccountInvoke"
+  action         = "lambda:InvokeFunction"
+  function_name  = aws_lambda_function.public.function_name
+  principal      = "s3.amazonaws.com"
+  source_account = var.untrusted_account_id
+  source_arn     = "arn:aws:s3:::partner-uploads-${var.untrusted_account_id}"
 }
 
 # ---------------------------------------------------------------------
@@ -153,5 +160,5 @@ resource "aws_lambda_permission" "secure_same_account" {
   statement_id  = "AllowOwnAccountInvoke"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.secure.function_name
-  principal     = local.account_id
+  principal     = "arn:aws:iam::${local.account_id}:root" # AWS lưu dạng ARN, khai báo đúng dạng để không bị replace mỗi lần apply
 }

@@ -23,13 +23,7 @@ variable "instance_type" {
 }
 
 variable "untrusted_account_id" {
-  description = "Account ID ngoài tổ chức, dùng để tạo lỗi cross-account cho CIS 12.10"
+  description = "Account ID ngoài tổ chức (dùng làm aws:SourceAccount), tạo lỗi cross-account cho CIS 12.10"
   type        = string
   default     = "111122223333"
-}
-
-variable "enable_apprunner_vpc_endpoint" {
-  description = "CIS 6.1: false = không có endpoint (FAIL), true = tạo interface endpoint (PASS, có tính phí theo giờ)"
-  type        = bool
-  default     = false
 }

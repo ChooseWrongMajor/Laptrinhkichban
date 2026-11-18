@@ -29,7 +29,6 @@ locals {
     "2.9"   = { service = "EC2", expected = "FAIL", fail = [aws_instance.legacy.id], pass = [aws_instance.hardened.id] }
     "2.13"  = { service = "EC2", expected = "FAIL", fail = [aws_instance.legacy.id], pass = [aws_instance.hardened.id] }
     "3.16"  = { service = "ECS", expected = "FAIL", fail = [aws_ecs_cluster.main.name], pass = [] }
-    "6.1"   = { service = "AppRunner", expected = var.enable_apprunner_vpc_endpoint ? "PASS" : "FAIL", fail = var.enable_apprunner_vpc_endpoint ? [] : [aws_vpc.main.id], pass = aws_vpc_endpoint.apprunner[*].id }
     "8.2"   = { service = "Batch", expected = "FAIL", fail = [aws_iam_role.batch_unsafe.name], pass = [aws_iam_role.batch_safe.name] }
     "12.8"  = { service = "Lambda", expected = "FAIL", fail = [aws_lambda_function.public.function_name], pass = [aws_lambda_function.secure.function_name] }
     "12.10" = { service = "Lambda", expected = "FAIL", fail = [aws_lambda_function.public.function_name], pass = [aws_lambda_function.secure.function_name] }

@@ -15,7 +15,6 @@ Hạ tầng được **cố ý cấu hình sai một phần** để mỗi khuy�
 | `lambda.tf` | `public-fn` (sai), `secure-fn` (ký code bằng AWS Signer) | 12.16 (A) · 12.8, 12.10 (M) |
 | `ecr.tf` | Repo policy `Principal: "*"` và repo chỉ cho account nội bộ | 18.4 (M) |
 | `batch.tf` | 2 compute environment Fargate, trust policy có/không `aws:SourceArn` | 8.2 (M) |
-| `apprunner.tf` | VPC endpoint App Runner (bật bằng biến) | 6.1 (M) |
 | `cis_matrix.tf` | Output kết quả kỳ vọng cho từng CIS ID | – |
 
 ## Kết quả kỳ vọng
@@ -40,7 +39,7 @@ Hạ tầng được **cố ý cấu hình sai một phần** để mỗi khuy�
 | 3.11 | PASS | – | cluster |
 | 12.16 | FAIL | `public-fn` (`NONE`) | `secure-fn` (`AWS_IAM`) |
 
-**Manual (11): đều có cặp đối chứng đúng/sai**
+**Manual (10): đều có cặp đối chứng đúng/sai**
 
 | CIS | FAIL | PASS |
 |---|---|---|
@@ -50,10 +49,9 @@ Hạ tầng được **cố ý cấu hình sai một phần** để mỗi khuy�
 | 2.9 | `ec2-legacy` (không SSM) | `ec2-hardened` |
 | 2.13 | `ec2-legacy` (secret giả trong user data) | `ec2-hardened` |
 | 3.16 | cluster (logging `DEFAULT`, service bật Exec) | – |
-| 6.1 | không có endpoint | bật `enable_apprunner_vpc_endpoint` |
 | 8.2 | `batch-service-unsafe` | `batch-service-safe` |
 | 12.8 | `public-fn` | `secure-fn` (CSC `Enforce`) |
-| 12.10 | `public-fn` (account `111122223333`) | `secure-fn` |
+| 12.10 | `public-fn` (S3 của account lạ `111122223333` được invoke) | `secure-fn` |
 | 18.4 | `computebench-leaky` | `computebench-private` |
 
 ## Điều kiện tiên quyết
@@ -80,4 +78,4 @@ Sau khi demo remediation 2.2.1 (bật EBS encryption by default), nếu muốn d
 
 ## Chi phí
 
-Phần tốn phí chính là 2 instance `t3.micro` chạy liên tục, cộng với snapshot của AMI/EBS (vài GB). ECS service, ASG và Batch đều để 0 task/instance nên không tốn phí. VPC endpoint App Runner mặc định tắt. Nên `terraform destroy` sau mỗi buổi làm.
+Phần tốn phí chính là 2 instance `t3.micro` chạy liên tục, cộng với snapshot của AMI/EBS (vài GB). ECS service, ASG và Batch đều để 0 task/instance nên không tốn phí. Nên `terraform destroy` sau mỗi buổi làm.
